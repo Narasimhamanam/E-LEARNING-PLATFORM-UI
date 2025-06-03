@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Assignments - E-Learning</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f2f6fc;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+       background-color: hsl(236, 96%, 74%);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .assignment-card {
+      background: white;
+      margin-bottom: 20px;
+      padding: 16px;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+    .assignment-card:hover {
+      transform: scale(1.01);
+    }
+    .assignment-card h3 {
+      margin: 0;
+      color: #0d47a1;
+    }
+    .assignment-card p {
+      margin: 6px 0;
+    }
+    .assignment-card input[type="file"] {
+      margin-top: 10px;
+    }
+    .submit-btn {
+      background: #198754;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      margin-top: 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .submit-btn:hover {
+      background: #157347;
+    }
+    .status {
+      font-weight: bold;
+      color: #dc3545;
+    }
+    .status.submitted {
+      color: #28a745;
+    }
+    .back-button {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .back-button a {
+      display: inline-block;
+      background-color: #ff4b4b;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .back-button a:hover {
+      background-color: #e63946;
+      transform: scale(1.05);
+    }
+    @media (max-width: 600px) {
+      .assignment-card {
+        padding: 12px;
+      }
+      .submit-btn {
+        width: 100%;
+      }
+    }
+    #link a {
+      color: #0d47a1;
+      text-decoration: none;
+    }
+    #link a:hover {
+      color: green;
+      animation: forwards 0.3s ease-in-out;
+      font-style: bold;
+
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>📚 Your Assignments</h1>
+</header>
+
+<div class="container" id="assignmentList">
+  <!-- Assignment cards will be inserted by JavaScript -->
+</div>
+
+<div class="back-button">
+  <a href="index.html">🏠 Back to Dashboard</a>
+</div>
+
+<script>
+  const assignments = [
+    {
+      id: 1,
+      title: "Assignment 1: HTML Basics",
+      description: "Create a basic HTML page with headings, lists, and links.",
+      dueDate: "2025-06-10",
+      attachment: "https://example.com/html-assignment.pdf"
+    },
+    {
+      id: 2,
+      title: "Assignment 2: CSS Styling",
+      description: "Apply styling using internal/external CSS to your HTML page.",
+      dueDate: "2025-06-15",
+      attachment: "https://example.com/css-assignment.pdf"
+    },
+    {
+      id: 3,
+      title: "Assignment 3: JavaScript DOM",
+      description: "Create interactive elements using JavaScript DOM methods.",
+      dueDate: "2025-06-18",
+      attachment: "https://example.com/js-assignment.pdf"
+    }
+  ];
+
+  const submitted = JSON.parse(localStorage.getItem("submittedAssignments") || "{}");
+
+  function renderAssignments() {
+    const container = document.getElementById("assignmentList");
+    container.innerHTML = "";
+
+    assignments.forEach(assignment => {
+      const isSubmitted = submitted[assignment.id];
+      container.innerHTML += `
+        <div class="assignment-card">
+          <h3>${assignment.title}</h3>
+          <p>${assignment.description}</p>
+          <p><strong>Due:</strong> ${assignment.dueDate}</p>
+          <p id="link" ><a href="${assignment.attachment}" target="_blank" >📎 View Attachment</a></p>
+          <p class="status ${isSubmitted ? 'submitted' : ''}">
+            ${isSubmitted ? "✅ Submitted" : "⏳ Pending"}
+          </p>
+          <input type="file" id="file-${assignment.id}" ${isSubmitted ? "disabled" : ""}>
+          <br>
+          <button class="submit-btn" onclick="submitAssignment(${assignment.id})" ${isSubmitted ? "disabled" : ""}>
+            Submit
+          </button>
+        </div>
+      `;
+    });
+  }
+
+  function submitAssignment(id) {
+    const fileInput = document.getElementById(`file-${id}`);
+    if (fileInput.files.length === 0) {
+      alert("Please select a file before submitting.");
+      return;
+    }
+
+    submitted[id] = true;
+    localStorage.setItem("submittedAssignments", JSON.stringify(submitted));
+    alert("Assignment submitted successfully!");
+    renderAssignments();
+  }
+
+  renderAssignments();
+</script>
+
+</body>
+</html>

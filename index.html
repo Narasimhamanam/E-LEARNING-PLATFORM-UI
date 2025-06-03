@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-Learning Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f4f6f8;
+      color: #333;
+    }
+
+    /* Navbar */
+    header {
+      background-color: hsl(236, 96%, 74%);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: 500;
+    }
+
+    /* Dashboard */
+    .dashboard {
+      padding: 2rem;
+    }
+
+    .dashboard h2 {
+      margin-bottom: 1rem;
+    }
+
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .course-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 1rem;
+      transition: transform 0.2s ease;
+    }
+
+    .course-card:hover {
+      transform: scale(1.02);
+    }
+
+    .course-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .course-card h3 {
+      margin: 0.8rem 0 0.3rem;
+      font-size: 1.1rem;
+    }
+
+    .progress {
+      background: #e0e0e0;
+      border-radius: 50px;
+      overflow: hidden;
+      height: 10px;
+      margin-top: 0.5rem;
+    }
+
+    .progress-bar {
+      height: 10px;
+      background: #00b4d8;
+      width: 60%;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        margin-top: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>EduCave</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="courses.html">Courses</a>
+      <a href="assignments.html">Assignments</a>
+      <a href="classes.html">Live Classes</a>
+      <a href="profile.html">Profile</a>
+    </nav>
+  </header>
+
+  <section class="dashboard">
+    <h2>Welcome Back, Student!</h2>
+    <p style="margin-bottom: 1.5rem;">Here's your learning dashboard 📚</p>
+    <h3>Explore Top Courses</h3>
+    <p style="margin-bottom: 1.5rem;">Upgrade your skills with expert-led courses 👨‍🏫</p>
+
+    <div class="category-bar">
+      <span>All</span>
+      <span>Development</span>
+      <span>Design</span>
+      <span>AI & Data</span>
+      <span>Business</span>
+      <span>Marketing</span>
+    </div>
+
+    <div class="course-grid">
+      <!-- Course 1 -->
+      <div class="course-card">
+        <img src="images/course.png" alt="Web Development">
+        <div class="course-content">
+          <h3>Web Development Bootcamp</h3>
+          <p>HTML, CSS, JS, React & more</p>
+        </div>
+      </div>
+
+      <!-- Course 2 -->
+      <div class="course-card">
+        <img src="images/course.png" alt="Python Programming">
+        <div class="course-content">
+          <h3>Python for Beginners</h3>
+          <p>Master programming fundamentals</p>
+        </div>
+      </div>
+
+      <!-- Course 3 -->
+      <div class="course-card">
+        <img src="images/course.png" alt="ML">
+        <div class="course-content">
+          <h3>Machine Learning 101</h3>
+          <p>Learn Scikit-Learn, Pandas, NumPy</p>
+        </div>
+      </div>
+
+      <!-- Course 4 -->
+      <div class="course-card">
+        <img src="images/course.png" alt="UI UX">
+        <div class="course-content">
+          <h3>UI/UX Design Essentials</h3>
+          <p>Figma, wireframing, prototyping</p>
+        </div>
+      </div>
+
+      <!-- Course 5 -->
+      <div class="course-card">
+        <img src="images/course.png" alt="Marketing">
+        <div class="course-content">
+          <h3>Digital Marketing Mastery</h3>
+          <p>SEO, Ads, Email campaigns</p>
+        </div>
+      </div>
+
+      <!-- Course 6 -->
+      <div class="course-card">
+        <img src="images/course.png" alt="Analytics">
+        <div class="course-content">
+          <h3>Data Analytics with Excel</h3>
+          <p>Dashboards, formulas, reports</p>
+        </div>
+      </div>
+
+      <!-- Course 7 -->
+      <div class="course-card">
+        <img src="images/course.png" alt="Cyber Security">
+        <div class="course-content">
+          <h3>Cybersecurity Basics</h3>
+          <p>Protect systems and networks</p>
+        </div>
+      </div>
+
+      <!-- Course 8 -->
+      <div class="course-card">
+        <img src="images/course.png" alt="Cloud Computing">
+        <div class="course-content">
+          <h3>Cloud Computing with AWS</h3>
+          <p>Deploy apps in the cloud</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+    <footer style="text-align: center; padding: 1rem; background-color: hsl(236, 96%, 74%); color: white;">
+        <p>&copy; 2023 EduCave. All rights reserved.</p>
+
+</body>
+</html>

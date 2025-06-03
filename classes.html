@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Live Classes - E-Learning</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f0f4fa;
+    }
+    header {
+      background-color: hsl(236, 96%, 74%);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .class-card {
+      background: white;
+      padding: 16px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+    .class-card:hover {
+      transform: scale(1.01);
+    }
+    .class-card h3 {
+      margin: 0;
+      color: #0d47a1;
+    }
+    .class-info {
+      margin: 10px 0;
+    }
+    .status {
+      font-weight: bold;
+      padding: 6px 12px;
+      border-radius: 6px;
+      display: inline-block;
+    }
+    .live { background-color: #28a745; color: white; }
+    .upcoming { background-color: #ffc107; color: black; }
+    .ended { background-color: #dc3545; color: white; }
+    .join-btn {
+      background-color: #0066cc;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
+    }
+    .join-btn:hover {
+      background-color: #004e99;
+    }
+    .resources {
+      margin-top: 10px;
+      font-size: 0.9rem;
+    }
+    .back-button {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .back-button a {
+      background-color: #ff4b4b;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .back-button a:hover {
+      background-color: #e63946;
+      transform: scale(1.05);
+    }
+    @media(max-width: 600px) {
+      .class-card { padding: 12px; }
+      .join-btn { width: 100%; text-align: center; }
+    }
+    .resources a{
+        color: #0066cc;
+        text-decoration: none;
+    }
+    .resources a:hover {
+        color:green
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🎥 Live Classes</h1>
+</header>
+
+<div class="container" id="classesContainer">
+  <!-- JavaScript inserts class cards here -->
+</div>
+
+<div class="back-button">
+  <a href="index.html">🏠 Back to Dashboard</a>
+</div>
+
+<script>
+  const classes = [
+    {
+      id: 1,
+      subject: "Web Development Basics",
+      instructor: "John Doe",
+      dateTime: "2025-06-04T10:00:00",
+      duration: 60,
+      link: "https://zoom.us/j/1111111111",
+      resources: "https://example.com/webdev-notes.pdf"
+    },
+    {
+      id: 2,
+      subject: "CSS Animations",
+      instructor: "Jane Smith",
+      dateTime: "2025-06-05T15:30:00",
+      duration: 45,
+      link: "https://zoom.us/j/2222222222",
+      resources: "https://example.com/css-slides.pdf"
+    },
+    {
+      id: 3,
+      subject: "JavaScript DOM Manipulation",
+      instructor: "Michael Lee",
+      dateTime: "2025-06-02T14:00:00",
+      duration: 60,
+      link: "https://zoom.us/j/3333333333",
+      resources: "https://example.com/js-recording.mp4"
+    }
+  ];
+
+  function getStatus(start, duration) {
+    const now = new Date();
+    const startTime = new Date(start);
+    const endTime = new Date(startTime.getTime() + duration * 60000);
+
+    if (now < startTime) return 'upcoming';
+    if (now >= startTime && now <= endTime) return 'live';
+    return 'ended';
+  }
+
+  function renderClasses() {
+    const container = document.getElementById("classesContainer");
+    container.innerHTML = "";
+
+    classes.forEach(cls => {
+      const status = getStatus(cls.dateTime, cls.duration);
+      const date = new Date(cls.dateTime);
+      const timeStr = date.toLocaleString();
+
+      container.innerHTML += `
+        <div class="class-card">
+          <h3>${cls.subject}</h3>
+          <p class="class-info">👨‍🏫 Instructor: ${cls.instructor}</p>
+          <p class="class-info">📅 Time: ${timeStr}</p>
+          <span class="status ${status}">
+            ${status === 'live' ? '🟢 Live Now' :
+              status === 'upcoming' ? '🕓 Upcoming' : '🔴 Ended'}
+          </span>
+          ${status !== 'ended' ? `<br><a href="${cls.link}" class="join-btn" target="_blank">Join Now</a>` : ""}
+          ${status === 'ended' ? `
+            <div class="resources">
+              📁 <a href="${cls.resources}" target="_blank">View Class Resources</a>
+            </div>` : ""}
+        </div>
+      `;
+    });
+  }
+
+  renderClasses();
+</script>
+
+</body>
+</html>

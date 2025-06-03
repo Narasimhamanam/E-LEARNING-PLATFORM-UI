@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Profile - EduWave</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f5f7fa;
+      display: flex;
+    }
+
+    aside {
+      width: 220px;
+      background-color: hsl(236, 96%, 74%);
+      
+      color: white;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+
+    aside h2 {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    aside ul {
+      list-style: none;
+    }
+
+    aside ul li {
+      margin: 1rem 0;
+      cursor: pointer;
+      padding: 0.6rem;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+
+    aside ul li:hover,
+    aside ul li.active {
+      background: #1d3557;
+    }
+
+    .main {
+      flex: 1;
+      padding: 2rem;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .profile-card {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .profile-img {
+      flex: 1;
+      max-width: 200px;
+    }
+
+    .profile-img img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #457b9d;
+    }
+
+    .profile-info {
+      flex: 2;
+    }
+
+    .profile-info h2 {
+      margin-bottom: 0.5rem;
+    }
+
+    .section {
+      margin-top: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      background: #1d3557;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .certificates, .badges {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .cert-item, .badge-item {
+      background: white;
+      border: 1px solid #ccc;
+      padding: 1rem;
+      border-radius: 8px;
+      width: 200px;
+      text-align: center;
+    }
+
+    .cert-item button {
+      margin-top: 0.6rem;
+      background: #00b4d8;
+    }
+
+    .badge-item img {
+      width: 80px;
+      margin-bottom: 0.6rem;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+
+      aside {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      aside ul {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+      }
+
+      .profile-card {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .profile-info {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <aside>
+    <h2>My Profile</h2>
+    <ul id="sidebar-tabs">
+      <li class="active" data-tab="profile">Profile</li>
+      <li data-tab="edit">Edit Profile</li>
+      <li data-tab="certificates">Certificates</li>
+      <li data-tab="achievements">Achievements</li>
+      <li style="list-style: none; margin-top: 20px;">
+  <a href="index.html" style="
+    display: inline-flex;
+    align-items: center;
+    background-color: #ff4b4b;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, transform 0.2s ease;
+  " onmouseover="this.style.backgroundColor='#e63946'; this.style.transform='scale(1.05)'"
+     onmouseout="this.style.backgroundColor='#ff4b4b'; this.style.transform='scale(1)'">
+    <span style="margin-right: 8px;"> Dashboard</span>
+  </a>
+</li>
+
+      <!-- <li><a href="index.html" style=" color: rgb(250, 2, 2); text-decoration:none;">Back to Home</a></li> -->
+</ul>
+
+</aside>
+
+
+  <div class="main">
+
+    <!-- Profile Overview -->
+    <div id="profile" class="tab-content active">
+  <div class="profile-card">
+    <div class="profile-img">
+      <img src="images/profile.png" alt="Student Photo" />
+    </div>
+    <div class="profile-info">
+      <h2>Narasimha Reddy</h2>
+      <p><strong>Email:</strong> narasimha@example.com</p>
+      <p><strong>Phone:</strong> +91-9876543210</p>
+      <p><strong>Date of Birth:</strong> March 10, 2003</p>
+      <p><strong>Roll Number:</strong> 21CSE1023</p>
+      <p><strong>Department:</strong> Computer Science & Engineering</p>
+      <p><strong>Year:</strong> Final Year (4th Year)</p>
+      <p><strong>Location:</strong> Hyderabad, India</p>
+      <p><strong>Bio:</strong> Final year CSE student. Interested in Full Stack Development and AI.</p>
+      <p><strong>Interests:</strong> Web Development, Artificial Intelligence, Open Source, UI/UX Design</p>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Edit Profile -->
+    <div id="edit" class="tab-content">
+  <h3>Edit Your Info</h3>
+  <form onsubmit="saveProfile(event)">
+    <div class="form-group">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" value="Narasimha Reddy" />
+    </div>
+    <div class="form-group">
+      <label for="email">Email ID</label>
+      <input type="email" id="email" value="narasimha@example.com" />
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone Number</label>
+      <input type="text" id="phone" value="+91-9876543210" />
+    </div>
+    <div class="form-group">
+      <label for="dob">Date of Birth</label>
+      <input type="date" id="dob" value="2003-03-10" />
+    </div>
+    <div class="form-group">
+      <label for="roll">Roll Number</label>
+      <input type="text" id="roll" value="21CSE1023" />
+    </div>
+    <div class="form-group">
+      <label for="dept">Department</label>
+      <input type="text" id="dept" value="Computer Science & Engineering" />
+    </div>
+    <div class="form-group">
+      <label for="year">Year</label>
+      <input type="text" id="year" value="Final Year (4th Year)" />
+    </div>
+    <div class="form-group">
+      <label for="location">Location</label>
+      <input type="text" id="location" value="Hyderabad, India" />
+    </div>
+    <div class="form-group">
+      <label for="bio">Bio</label>
+      <textarea id="bio">Final year CSE student. Interested in Full Stack Development and AI.</textarea>
+    </div>
+    <div class="form-group">
+      <label for="interests">Interests</label>
+      <textarea id="interests">Web Development, Artificial Intelligence, Open Source, UI/UX Design</textarea>
+    </div>
+    <div class="form-group">
+      <label for="photo">Profile Photo URL</label>
+      <input type="text" id="photo" value="https://source.unsplash.com/180x180/?student" />
+    </div>
+    <button type="submit">Save Changes</button>
+  </form>
+</div>
+
+
+    <!-- Certificates -->
+    <div id="certificates" class="tab-content">
+      <h3>Certificates</h3>
+      <div class="certificates">
+        <div class="cert-item">
+          <h4>Web Development</h4>
+          <button>Download PDF</button>
+        </div>
+        <div class="cert-item">
+          <h4>Python Basics</h4>
+          <button>Download PDF</button>
+        </div>
+        <div class="cert-item">
+          <h4>Machine Learning</h4>
+          <button>Download PDF</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Achievements -->
+    <div id="achievements" class="tab-content">
+      <h3>Badges & Achievements</h3>
+      <div class="badges">
+        <div class="badge-item">
+          <img src="https://img.icons8.com/color/96/000000/trophy.png" alt="Badge" />
+          <p>Top Scorer</p>
+        </div>
+        <div class="badge-item">
+          <img src="https://img.icons8.com/color/96/000000/certificate.png" alt="Badge" />
+          <p>Certified Learner</p>
+        </div>
+        <div class="badge-item">
+          <img src="https://img.icons8.com/color/96/000000/star.png" alt="Badge" />
+          <p>5-Star Reviewer</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+  const tabs = document.querySelectorAll('#sidebar-tabs li');
+  const contents = document.querySelectorAll('.tab-content');
+
+  // Tab switching
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      contents.forEach(c => c.classList.remove('active'));
+
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Default profile data
+  const defaultProfile = {
+    name: "Narasimha Reddy",
+    email: "narasimha@example.com",
+    phone: "+91-9876543210",
+    dob: "2003-03-10",
+    roll: "21CSE1023",
+    dept: "Computer Science & Engineering",
+    year: "Final Year (4th Year)",
+    location: "Hyderabad, India",
+    bio: "Final year CSE student. Interested in Full Stack Development and AI.",
+    interests: "Web Development, Artificial Intelligence, Open Source, UI/UX Design",
+    photo: "https://source.unsplash.com/180x180/?student"
+  };
+
+  // Load profile from localStorage or defaults
+  function loadProfile() {
+    const profile = JSON.parse(localStorage.getItem("studentProfile")) || defaultProfile;
+
+    // Update Profile tab info
+    document.querySelector("#profile .profile-info").innerHTML = `
+      <h2>${profile.name}</h2>
+      <p><strong>Email:</strong> ${profile.email}</p>
+      <p><strong>Phone:</strong> ${profile.phone}</p>
+      <p><strong>Date of Birth:</strong> ${new Date(profile.dob).toLocaleDateString(undefined, {year: 'numeric', month: 'long', day: 'numeric'})}</p>
+      <p><strong>Roll Number:</strong> ${profile.roll}</p>
+      <p><strong>Department:</strong> ${profile.dept}</p>
+      <p><strong>Year:</strong> ${profile.year}</p>
+      <p><strong>Location:</strong> ${profile.location}</p>
+      <p><strong>Bio:</strong> ${profile.bio}</p>
+      <p><strong>Interests:</strong> ${profile.interests}</p>
+    `;
+
+    document.querySelector("#profile .profile-img img").src = profile.photo;
+
+    // Pre-fill Edit form inputs and textareas
+    Object.entries(profile).forEach(([key, value]) => {
+      const el = document.getElementById(key);
+      if (el) el.value = value;
+    });
+  }
+
+  // Save profile on form submit
+  function saveProfile(event) {
+    event.preventDefault();
+
+    const profile = {
+      name: document.getElementById("name").value.trim(),
+      email: document.getElementById("email").value.trim(),
+      phone: document.getElementById("phone").value.trim(),
+      dob: document.getElementById("dob").value,
+      roll: document.getElementById("roll").value.trim(),
+      dept: document.getElementById("dept").value.trim(),
+      year: document.getElementById("year").value.trim(),
+      location: document.getElementById("location").value.trim(),
+      bio: document.getElementById("bio").value.trim(),
+      interests: document.getElementById("interests").value.trim(),
+      photo: document.getElementById("photo").value.trim() || defaultProfile.photo
+    };
+
+    localStorage.setItem("studentProfile", JSON.stringify(profile));
+    loadProfile();
+    alert("Profile updated successfully!");
+  }
+
+  window.addEventListener("DOMContentLoaded", loadProfile);
+</script>
+
+
+</body>
+</html>
