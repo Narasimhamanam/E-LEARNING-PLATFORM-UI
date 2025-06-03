@@ -41,5 +41,5 @@ The platform supports various learning modules such as Profile management, Cours
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/YourGitHubUsername/e-learning-platform.git
+git clone https://github.com/Narasimhamanam/e-learning-platform.git
 cd e-learning-platform
