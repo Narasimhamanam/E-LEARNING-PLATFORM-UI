@@ -38,11 +38,13 @@ The platform supports various learning modules such as Profile management, Cours
 
 ##OUTPUT
 
+
+![Image](https://github.com/user-attachments/assets/53e84af4-dd0a-46e1-81ad-840b8436a1df)
+![Image](https://github.com/user-attachments/assets/d8e8f4da-55e9-4ca5-bc06-517f7e9ec770)
 ![Image](https://github.com/user-attachments/assets/209b0760-72e0-49e7-b6ba-abafafdc7245)
 ![Image](https://github.com/user-attachments/assets/d146100b-b58d-4140-ae07-3262c3996487)
 ![Image](https://github.com/user-attachments/assets/d5936afa-e175-4d90-ae9b-91f0c31eb029)
-![Image](https://github.com/user-attachments/assets/53e84af4-dd0a-46e1-81ad-840b8436a1df)
-![Image](https://github.com/user-attachments/assets/d8e8f4da-55e9-4ca5-bc06-517f7e9ec770)
+
 
 
 
