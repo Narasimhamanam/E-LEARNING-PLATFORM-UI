@@ -1,5 +1,16 @@
 # E-Learning Platform
 
+*COMPANY*: CODTECH IT SOLUTIONS
+
+*NAME*: NARASIMHA MANAM
+
+*INTERN ID*: CT04DF662
+
+*DOMAIN*: FRONT END DEVELOPMENT
+
+*MENTOR*: NEELA SANTOSH
+
+
 **Company:** CODTECH IT SOLUTIONS  
 **Developer:** Narasimha Manam  
 **Intern ID:** CT04DF662  
